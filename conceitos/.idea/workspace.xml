@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7e02c4c0-dc68-4336-ad51-700f0aa71e3d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1aPjy2n04HbOuq2WeuOtSXfkurB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.marquinhus" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CadastroPessoasTest">
+    <configuration name="CadastroPessoasTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.marquinhus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.marquinhus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.marquinhus" />
+      <option name="MAIN_CLASS_NAME" value="com.marquinhus.CadastroPessoasTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CadastroPessoasTest.deveLançarErroAoTentarRemoverPessoaDeListaVazia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.marquinhus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.marquinhus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.marquinhus" />
+      <option name="MAIN_CLASS_NAME" value="com.marquinhus.CadastroPessoasTest" />
+      <option name="METHOD_NAME" value="deveLançarErroAoTentarRemoverPessoaDeListaVazia" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockitoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.marquinhus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.marquinhus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.marquinhus" />
+      <option name="MAIN_CLASS_NAME" value="com.marquinhus.MockitoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MockitoTest.primeiroTesteMockito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.marquinhus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.marquinhus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.marquinhus" />
+      <option name="MAIN_CLASS_NAME" value="com.marquinhus.MockitoTest" />
+      <option name="METHOD_NAME" value="primeiroTesteMockito" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrimeiroTeste" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.marquinhus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.marquinhus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.marquinhus" />
+      <option name="MAIN_CLASS_NAME" value="com.marquinhus.PrimeiroTeste" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CadastroPessoasTest" />
+        <item itemvalue="JUnit.PrimeiroTeste" />
+        <item itemvalue="JUnit.MockitoTest" />
+        <item itemvalue="JUnit.CadastroPessoasTest.deveLançarErroAoTentarRemoverPessoaDeListaVazia" />
+        <item itemvalue="JUnit.MockitoTest.primeiroTesteMockito" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e02c4c0-dc68-4336-ad51-700f0aa71e3d" name="Default Changelist" comment="" />
+      <created>1586644373415</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586644373415</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1373" height="202" key="GridCell.Tab.0.bottom" timestamp="1586659428822">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="1373" height="202" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1586659428822" />
+    <state width="1373" height="202" key="GridCell.Tab.0.center" timestamp="1586659428821">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="1373" height="202" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1586659428821" />
+    <state width="1373" height="202" key="GridCell.Tab.0.left" timestamp="1586659428821">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="1373" height="202" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1586659428821" />
+    <state width="1373" height="202" key="GridCell.Tab.0.right" timestamp="1586659428822">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="1373" height="202" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1586659428822" />
+    <state x="378" y="170" width="670" height="676" key="search.everywhere.popup" timestamp="1586645454467">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="378" y="170" width="670" height="676" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1586645454467" />
+  </component>
+</project>
