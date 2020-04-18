@@ -2,6 +2,7 @@ package com.marquinhus.libraryapi.api.resource;
 
 import com.marquinhus.libraryapi.api.dto.BookDto;
 import com.marquinhus.libraryapi.api.exception.ApiErrors;
+import com.marquinhus.libraryapi.api.exception.BusinessException;
 import com.marquinhus.libraryapi.model.entiy.Book;
 import com.marquinhus.libraryapi.service.BookService;
 import org.modelmapper.ModelMapper;
@@ -39,5 +40,11 @@ public class BookController {
     public ApiErrors handleValidationExceptions(MethodArgumentNotValidException ex) {
         BindingResult bindingResult = ex.getBindingResult();
         return new ApiErrors(bindingResult);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrors handleBusinessException(BusinessException ex) {
+        return new ApiErrors(ex);
     }
 }

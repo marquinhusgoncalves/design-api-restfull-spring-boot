@@ -2,6 +2,7 @@ package com.marquinhus.libraryapi.api.resource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marquinhus.libraryapi.api.dto.BookDto;
+import com.marquinhus.libraryapi.api.exception.BusinessException;
 import com.marquinhus.libraryapi.model.entiy.Book;
 import com.marquinhus.libraryapi.service.BookService;
 import org.junit.jupiter.api.DisplayName;
@@ -42,7 +43,7 @@ public class BookControllerTest {
     @DisplayName("Deve criar umm livro com sucesso")
     public void createBookTest() throws Exception {
 
-        BookDto dto = BookDto.builder().author("Arthur").title("As aventuras").isbn("001").build();
+        BookDto dto = createNewBook();
         Book saveBook = Book.builder().id(101).author("Arthur").title("As aventuras").isbn("001").build();
 
         BDDMockito.given(service.save(Mockito.any(Book.class))).willReturn(saveBook);
@@ -78,5 +79,31 @@ public class BookControllerTest {
         mvc.perform(request)
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("errors", hasSize(3)));
+    }
+
+    @Test
+    @DisplayName("Deve lançar erro ao tentar cadastrar um livro com isbn já utilizado por outro")
+    public void createBookWithDuplicatedIsbn() throws Exception {
+
+        BookDto dto = createNewBook();
+        String json = new ObjectMapper().writeValueAsString(dto);
+        String messageError = "Isbn já cadastrado";
+        BDDMockito.given(service.save(Mockito.any(Book.class)))
+                .willThrow(new BusinessException(messageError));
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .post(API_BOOK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(json);
+
+        mvc.perform(request)
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("errors", hasSize(1)))
+                .andExpect(jsonPath("errors[0]").value(messageError));
+    }
+
+    private BookDto createNewBook() {
+        return BookDto.builder().author("Arthur").title("As aventuras").isbn("001").build();
     }
 }
