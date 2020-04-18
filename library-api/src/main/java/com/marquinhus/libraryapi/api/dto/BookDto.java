@@ -2,8 +2,7 @@ package com.marquinhus.libraryapi.api.dto;
 
 import lombok.*;
 
-@Setter
-@Getter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

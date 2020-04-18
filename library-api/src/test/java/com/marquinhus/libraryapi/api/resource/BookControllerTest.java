@@ -2,12 +2,17 @@ package com.marquinhus.libraryapi.api.resource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marquinhus.libraryapi.api.dto.BookDto;
+import com.marquinhus.libraryapi.model.entiy.Book;
+import com.marquinhus.libraryapi.service.BookService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -29,11 +34,17 @@ public class BookControllerTest {
     @Autowired
     MockMvc mvc;
 
+    @MockBean
+    BookService service;
+
     @Test
     @DisplayName("Deve criar umm livro com sucesso")
     public void createBookTest() throws Exception {
 
         BookDto dto = BookDto.builder().author("Arthur").title("As aventuras").isbn("001").build();
+        Book saveBook = Book.builder().id(101).author("Arthur").title("As aventuras").isbn("001").build();
+
+        BDDMockito.given(service.save(Mockito.any(Book.class))).willReturn(saveBook);
         String json = new ObjectMapper().writeValueAsString(dto);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -45,7 +56,7 @@ public class BookControllerTest {
         mvc
                 .perform(request)
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("id").isNotEmpty())
+                .andExpect(jsonPath("id").value(101))
                 .andExpect(jsonPath("title").value(dto.getTitle()))
                 .andExpect(jsonPath("author").value(dto.getAuthor()))
                 .andExpect(jsonPath("isbn").value(dto.getIsbn()));
