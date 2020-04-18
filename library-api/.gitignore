@@ -15,6 +15,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.idea/*
 *.iws
 *.iml
 *.ipr
@@ -29,3 +30,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### MAC OS ###
+*.DS_Store
