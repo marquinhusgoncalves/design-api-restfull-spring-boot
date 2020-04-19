@@ -28,4 +28,9 @@ public class BookServiceImpl implements com.marquinhus.libraryapi.service.BookSe
     public Optional<Book> getById(Long id) {
         return Optional.empty();
     }
+
+    @Override
+    public void delete(Book book) {
+
+    }
 }
