@@ -39,7 +39,7 @@ public class BookServiceTest {
         Mockito.when(repository.existsByIsbn(Mockito.anyString())).thenReturn(false);
         Mockito.when(repository.save(book)).thenReturn(
                 Book.builder()
-                        .id((long) 11)
+                        .id(11L)
                         .isbn("123")
                         .title("As aventuras")
                         .author("Fulano")
