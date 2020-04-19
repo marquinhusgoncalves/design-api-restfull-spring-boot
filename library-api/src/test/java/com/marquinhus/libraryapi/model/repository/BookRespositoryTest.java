@@ -1,5 +1,6 @@
 package com.marquinhus.libraryapi.model.repository;
 
+import com.marquinhus.libraryapi.model.entiy.Book;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,7 +25,22 @@ public class BookRespositoryTest {
 
     @Test
     @DisplayName("Deve retornar verdadeiro quando existir um livro na base com o isbn informado")
-    public void returnTrueWhenisbnExists() {
+    public void returnTrueWhenIsbnExists() {
+        // cenario
+        String isbn = "123";
+        Book book = Book.builder().title("Aventuras").author("Fulano").isbn(isbn).build();
+        entityManager.persist(book);
+
+        // execucao
+        Boolean exists = repository.existsByIsbn(isbn);
+
+        // verificação
+        assertThat(exists).isTrue();
+    }
+
+    @Test
+    @DisplayName("Deve retornar false quando não existir um livro na base com o isbn informado")
+    public void returnFalseWhenIsbnDoenstExists() {
         // cenario
         String isbn = "123";
 
@@ -32,6 +48,6 @@ public class BookRespositoryTest {
         Boolean exists = repository.existsByIsbn(isbn);
 
         // verificação
-        assertThat(exists).isTrue();
+        assertThat(exists).isFalse();
     }
 }

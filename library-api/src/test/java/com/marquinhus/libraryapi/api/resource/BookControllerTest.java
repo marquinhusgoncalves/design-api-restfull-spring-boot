@@ -44,7 +44,7 @@ public class BookControllerTest {
     public void createBookTest() throws Exception {
 
         BookDto dto = createNewBook();
-        Book saveBook = Book.builder().id(101).author("Arthur").title("As aventuras").isbn("001").build();
+        Book saveBook = Book.builder().id((long) 101).author("Arthur").title("As aventuras").isbn("001").build();
 
         BDDMockito.given(service.save(Mockito.any(Book.class))).willReturn(saveBook);
         String json = new ObjectMapper().writeValueAsString(dto);
