@@ -67,6 +67,36 @@ public class BookRespositoryTest {
         assertThat(foundBook.isPresent()).isTrue();
     }
 
+    @Test
+    @DisplayName("Deve salvar um livro")
+    public void saveBookTest() {
+        // cenario
+        Book book = createNewBook("123");
+
+        // execucao
+        Book savedBook = repository.save(book);
+
+        // verificacoes
+        assertThat(savedBook.getId()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("Deve deletar um livro")
+    public void deleteBookTest() {
+        // cenario
+        String isbn = "123";
+        Book book = createNewBook(isbn);
+        entityManager.persist(book);
+
+        // execucao
+        Book foundBook = entityManager.find(Book.class, book.getId());
+        repository.delete(foundBook);
+
+        // verificacoes
+        Book deletedBook = entityManager.find(Book.class, book.getId());
+        assertThat(deletedBook).isNull();
+    }
+
     private Book createNewBook(String isbn) {
         return Book.builder().title("Aventuras").author("Fulano").isbn(isbn).build();
     }
