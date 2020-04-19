@@ -3,8 +3,10 @@ package com.marquinhus.libraryapi.service.impl;
 import com.marquinhus.libraryapi.api.exception.BusinessException;
 import com.marquinhus.libraryapi.model.entiy.Book;
 import com.marquinhus.libraryapi.model.repository.BookRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.Optional;
 
 @Service
@@ -43,5 +45,10 @@ public class BookServiceImpl implements com.marquinhus.libraryapi.service.BookSe
             throw new IllegalArgumentException("Book id cant be null");
         }
         return this.repository.save(book);
+    }
+
+    @Override
+    public Page<Book> find(Book filter, Pageable pageRequest) {
+        return null;
     }
 }

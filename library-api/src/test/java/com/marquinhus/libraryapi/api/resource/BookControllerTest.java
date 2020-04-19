@@ -5,6 +5,7 @@ import com.marquinhus.libraryapi.api.dto.BookDto;
 import com.marquinhus.libraryapi.api.exception.BusinessException;
 import com.marquinhus.libraryapi.model.entiy.Book;
 import com.marquinhus.libraryapi.service.BookService;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -21,6 +24,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.awt.print.Pageable;
+import java.util.Arrays;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -223,6 +228,35 @@ public class BookControllerTest {
                 .andExpect( status().isNotFound() );
     }
 
+    @Test
+    @DisplayName("Deve filtrar livros")
+    public void findBookTest() throws Exception {
+        Long id = 1L;
+        Book book = Book.builder()
+                .id(id)
+                .title(createNewBook().getTitle())
+                .author(createNewBook().getAuthor())
+                .isbn(createNewBook().getIsbn())
+                .build();
+
+        BDDMockito.given(service.find(Mockito.any(Book.class), Mockito.any(Pageable.class)))
+            .willReturn(new PageImpl<Book>(Arrays.asList(book), PageRequest.of(0, 100), 1 ));
+
+        String queryString = String.format("?title=%s&author=%s&page=0&size=100",
+                book.getTitle(),  book.getAuthor());
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get(API_BOOK.concat(queryString))
+                .accept(MediaType.APPLICATION_JSON);
+
+        mvc
+                .perform(request)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("content", Matchers.hasSize(1)))
+                .andExpect(jsonPath("totalElements").value(1))
+                .andExpect(jsonPath("pageble.pageSize").value(100))
+                .andExpect(jsonPath("pageble.pageNumber").value(0));
+    }
 
     private BookDto createNewBook() {
         return BookDto.builder().author("Arthur").title("As aventuras").isbn("001").build();
