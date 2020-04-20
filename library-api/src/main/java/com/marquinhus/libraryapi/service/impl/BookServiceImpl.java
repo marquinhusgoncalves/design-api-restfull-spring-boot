@@ -4,9 +4,9 @@ import com.marquinhus.libraryapi.api.exception.BusinessException;
 import com.marquinhus.libraryapi.model.entiy.Book;
 import com.marquinhus.libraryapi.model.repository.BookRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.Optional;
 
 @Service
